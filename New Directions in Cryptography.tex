@@ -1,0 +1,239 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{\textbf{New Directions in Cryptography}}
+\author{Uygar Kaya, Tuğcan Hoşer, Onur Alaçam}
+\date{\textbf{Spring 2021}}
+
+\begin{document}
+\maketitle
+
+\begin{center}
+    \textbf{Project Report}
+\end{center}
+
+\vspace{127mm}
+
+\begin{flushleft}
+
+\vspace{2cm}
+
+\textbf{Abstract:}
+The article summarizes the increasing use of teleprocessing has necessitated the development of modern cryptographic mechanisms that minimize the need for secure key-distribution networks and providing the alternative of a written signature. These problems have been tried to be solved by using information theory and computation theory.\newline 
+\end{flushleft}
+
+\vspace{161mm}
+
+\begin{flushleft}
+\textbf{1. Introduction} \newline
+
+\hspace{0.5cm} With the development of computer controlled communication networks, the need for other communication systems has decreased, but with the development of computer controlled communication networks, some security problems arise, as examples of these problems are privacy and authentication, but modern cryptographic solutions cannot meet this problem. \textit{“New Directions in Cryptography”} co-written by \textit{Diffie} and \textit{Hellman} article seeks solutions to these problems. \newline
+
+\hspace{0.5cm} The most well-known cryptographic challenge is privacy, which involves preventing unauthorized data extraction from communications over an insecure network. Nevertheless, in order to use encryption to ensure secrecy, the exchanging parties must currently exchange a key that is only understood by them. \newline
+
+\hspace{0.5cm} In the Privacy part there are two approach. One of the approach is \textit{Public key cryptosystem} where instead of one secret key you have two distinct keys E and D where E is used for encrypting messages and D is used for decrypting messages. The keys are chosen such that computing the decrypting key D from E is computationally infeasible. The other approach is \textit{Public Key Distribution System} the idea here is that once again two people who do not share a secret key that they have exchanged in advance want to arrive at a secret key. \newline
+
+\hspace{0.5cm} The second problem this paper looks at is the problem of producing digital signatures we want these digital signatures to have the same properties as written signatures on paper documents which are to say that only the owner of the signature could have produced that signature and it is attached to a specific document, in other words, a digital signature proves the authenticity of a document and it can be checked by anyone to verify that authenticity. \newline
+
+\hspace{0.5cm} In Section 3 (Main Section(s)), we will describe more detailed version of solutions. \newline
+
+\hspace{0.5cm} The Diffie - Hellman algorithm is used in most applications. The following applications are examples of some of them; \newline
+
+\hspace{1cm} \textit{1.Transport Layer Security (TLS) / Secure Sockets Layer (SSL)}
+
+\hspace{1cm} \textit{2.Internet Protocol Security (IPSec)} \newline
+
+\textit{\textbf{Transport Layer Security (TLS) / Secure Sockets Layer (SSL)}}
+
+\hspace{0.5cm} TLS (Transport Layer Security) is a security protocol for the transport layer. TLS was derived from the Secure Service Layer (SSL) authentication protocol, and it guarantees that no third party can eavesdrops or tampers with any message. TLS/SSL can support secure data transmission by encrypting it.
+\vspace{5mm}
+
+\textit{\textbf{Internet Protocol Security (IPSec)}}
+
+\hspace{0.5cm} IP security (IPSec) is an Internet Engineering Task Force (IETF) specification suite of protocols that provide data verification, integrity, and secrecy between two communication points over an IP network. It also specifies how packets are encrypted, decrypted, and authenticated. It defines the protocols for stable key sharing and key control.
+\vspace{5mm}
+
+
+\textbf{2. Background} \newline
+
+\textbf{2.1 Definitions} \newline
+
+\hspace{0.5cm} Conventional Cryptography: Cryptographic system which uses same key used by sender to encrypt message and by receiver to decrypt message. It was only type of encryption in use prior to development of public-key encryption. \newline
+
+\hspace{0.5cm} Public Key Cryptography: It is include the \textit{Public Key Cryptosystem} and \textit{Public Key Distribution Systems.} \newline
+
+\hspace{0.5cm} Public Key Cryptosystem: Encryption and Decryption are controlled by two different keys, \textit{E} and \textit{D} such that computing \textit{D} from \textit{E} is computationally infeasible.\newline
+
+\hspace{0.5cm} Public Key Distribution Systems: Provide an alternative method for removing the necessity for a secure key distribution route. \newline
+
+\hspace{0.5cm} Plaintext: This is the original message. This message is given to the Encryption algorithm as an input. In this article, it is shown that \textit{P}.\newline
+
+\hspace{0.5cm} Ciphertext: The cipher text is generated by the Encryption algorithm. This message is beyond our comprehension. In this article, it is shown that \textit{C}.\newline
+
+\hspace{0.5cm} Message Authentication: Prevents illegal communications from being injected into a public channel, guaranteeing the message's recipient of the sender's identity. \newline
+
+\hspace{0.5cm} User Authentication: Unauthorized users are prevented from accessing sensitive information via user authentication. \newline
+
+\hspace{0.5cm} Computationally Secure: A system which is secure due to the computational cost of cryptanalysis, but which would succumb to an attack with unlimited computation. \newline
+
+\hspace{0.5cm} Unconditionally Secure: A system which can resist any cryptanalytic attack, no matter how much computation is allowed. \newline
+
+\hspace{0.5cm} Ciphertext Only Attack: A cryptanalytic attack in
+which the cryptanalyst possesses only ciphertext. \newline
+
+\hspace{0.5cm} Known Plaintext Attack: A cryptanalytic attack in
+which the cryptanalyst possesses a substantial quantity
+of corresponding plaintext and ciphertext. \newline
+
+\hspace{0.5cm} Chosen Plaintext Attack: A cryptanalytic attack in
+which the cryptanalyst can submit an unlimited number
+of plaintext messages of his own choosing and examine the
+resulting cryptograms. \newline
+
+\hspace{0.5cm} One Time Pad: An encryption technique that cannot be cracked, but requires the use of a one-time pre-shared key the same size as, or longer than, the message being sent.\newline
+
+\hspace{0.5cm} Computationally Infeasible: A computation which although computable would take far too many resources to actually compute. \newline
+
+\hspace{0.5cm} Block Ciphers: An encryption method that encrypts a block of text using a deterministic algorithm and a symmetric key. \newline
+
+\hspace{0.5cm} Injection: Injection is a security breaching approach that involves modifying a program unexpectedly. \newline
+
+\hspace{0.5cm} Eavesdropping: The act of secretly or stealthily listening to the private conversation or communications of others without their consent in order to gather information. \newline
+
+\hspace{0.5cm} Public Channel: A public channel is viewable to anybody on your team. \newline
+
+\hspace{0.5cm} Trap Doors: Easy to complete in one direction, but requires a secret to execute the opposite computation effectively. \newline
+
+\hspace{0.5cm} One-Way Authentication: Only one user verifies the identity of the other user.\newline
+
+\textbf{2.2 Notations} \newline
+
+\hspace{0.5cm} P: \textit{Plaintext}
+
+\hspace{0.5cm} C: \textit{Ciphertext}
+
+\hspace{0.5cm} M: \textit{Finite Message Space}
+
+\hspace{0.5cm} S_K: Encryption Algorithm
+
+\hspace{0.5cm} E_K: \textit{Enciphering Key}
+
+\hspace{0.5cm} D_K: \textit{Deciphering Key}
+
+\vspace{1cm}
+
+\hspace{0.5cm} Plaintext: P = S_k^{-1}(C) = S_k^{-1}(S_k(P))\newline
+
+\hspace{0.5cm} Ciphertext: C = S_k\{P\} \newline
+
+\hspace{0.5cm} Enciphering Key: E_K:\{M\}\rightarrow\{M\} \newline
+
+\hspace{0.5cm} Deciphering Key: D_K:\{M\}\rightarrow\{M\} \newline
+
+\textbf{2.3 Detailed Problem Statement} \newline
+
+\hspace{0.5cm} Cryptography suffered from one fundamental problem which was that two parties that wanted to privately communicate needed to have shared a secret key in advance and this key exchange would have had to happen via some other mechanism like a courier or registered mail or meeting in person and once this key had been shared they could then send encrypted messages back and forth to each other obviously in situations where you want to do this with people you might not have yet met this is impractical you cannot wait until you can first securely exchange a key. In this \textit{Conventional Cryptography}, Authenticity of message cannot be guaranteed, because both sender and receiver use the same key, messages cannot be verified to have come from a particular user. \newline
+
+\hspace{0.5cm} In the \textit{Conventional Cryptography} system, we use the \textit{One-Time Pad} and unbreakable but this require extremely long keys; therefore, in most applications, the usage of \textit{One-Time Pad} extremely expensive.
+
+\vspace{5mm}
+
+\textbf{3. Main Section(s)} \newline 
+
+\textbf{3.1 Conventional Cryptography} \newline
+
+\hspace{0.5cm} Before sending the plaintext, the sender uses the key to encrypt the message and convert it to ciphertext. Then the receiver receiving this ciphertext needs the key that the sender uses to decrypt the ciphertext.This key is transmitted by the sender over the secure channel to the receiver.Then the receiver uses this key to decrypt the ciphertext and access the plaintext. This system is called Conventional Cryptography. \newline
+
+\hspace{0.5cm} \textit{Conventional Cryptography} was the only encryption method used before \textit{Public Key Cryptography}. Due to the problems mentioned in section 2.3, \textit{Conventional Cryptography} cannot satisfy certain needs, so \textit{Public Key Cryptography} has emerged that can satisfy these needs.\newline
+
+\vspace{1.2cm}
+
+\textbf{3.2 Public Key Cryptography} \newline
+
+\hspace{0.5cm} Public Key Cryptography is divided into two different subheadings which are \textit{Public Key Cryptosystem} and \textit{Public Key Distribution System}. \newline
+
+\hspace{0.5cm}\textbf{3.2.1 Public Key Cryptosystem} \newline
+
+\hspace{1cm} In Public Key Cryptosystem, each user has a key pair which are E\textsubscript{K} (Enciphering Key) and D\textsubscript{K} (Deciphering Key). E\textsubscript{K} is the inverse of D\textsubscript{K}. Moreover, it is computationally infeasible to find D\textsubscript{K} at the end of specific operations from E\textsubscript{K}. In this way, E\textsubscript{K} can be kept publicly. In contrast, D\textsubscript{K} must be kept secret. It is also important that public file of E\textsubscript{K} must be protected against unauthorized modifications. \newline
+
+\hspace{1cm} For example, if Alice wants to send a message to Bob, she encrypts the message using Bob's public key then sends the encrypted message to Bob. Bob, who then receives the message, decrypts the message using his private key and opens the message. Even if users other than Bob reaches the message, they cannot open the message because only Bob knows his private key. \newline
+
+\hspace{0.5cm}\textbf{3.2.2 Public Key Distribution System} \newline
+
+\hspace{1cm} X = Private Key \newline
+
+\hspace{1cm} Y = Public Key \newline
+
+\hspace{1cm} q = Prime Number \newline
+
+\hspace{1cm} $\alpha$ = Primitive Root of q \newline
+
+\hspace{1cm} $\alpha^X$ mod q = One-Way Function \newline
+
+\hspace{1cm} Y = $\alpha^X$ mod q \newline
+
+\hspace{1cm} X = log\textsubscript{$\alpha$} Y mod q \newline
+
+\hspace{1cm} K\textsubscript{ab} = Y\textsubscript{a}$^{X_b}$ mod q = \alpha^{X_a}$^{X_b}$ mod q \newline
+
+\hspace{1cm} Calculation of Y from X is easy because the mod of an exponential number can be easily computed. In contrast, calculation of X from Y is hard because of solving the discrete logarithm problem. \newline
+
+\hspace{2cm} 3$^{29}$ mod 17 = ? \rightarrow Easy
+
+\hspace{2cm} 3$^?$ mod 17 = 12 \rightarrow Hard \newline
+
+\hspace{1cm} The public key distribution system is an approach that eliminates the need for peer-to-peer authentication and secure channels. In this approach, people's private keys are randomly generated. These people create their own public keys using the one-way function of their private keys. Then, They receive each other's public key insecure. Afterwards, in order to understand that the message came from the person we are talking to, the primitive root of the function we use in the one-way function is changed with the public key of the person we are talking to, and the result is the same number on the opposite side, and authentication is provided. \newline
+
+\hspace{1cm} There are 3 people on a network which are Alice, Bob and Eve. Alice and Bob want to communicate securely between them, so Alice and Bob create a public key using randomly assigned private keys X\textsubscript{a} = 15 and X\textsubscript{b} = 13 together with the common values of $\alpha$ = 3 and q = 17, and this is the \hspace{1cm} Y\textsubscript{a} = 3$^{15}$ mod 17 = 6 and Y\textsubscript{b} = 3$^{13}$ mod 17 = 12 share public keys. Using each other's public keys, 12$^{15}$ mod 17 = 10 and 6$^{13}$ mod 17 = 10, Alice and Bob can communicate securely with each other because of the same result. Although Eve knows Alice and Bob's public keys, Alice and Bob's private keys are computationally infeasible, so Eve will not be able to reach Alice and Bob's secret message.\newline
+
+\textbf{3.3 One-Way Authentication} \newline
+
+\hspace{1cm} One of the main reasons we need cryptography is authentication. At that time, it was a crucial problem that the existing authentication systems were not purely digital, could be imitated, and did not meet the digital signature. Therefore, One-Way Authentication was created.\newline
+
+\hspace{1cm} In daily life, written signatures provide authentication. This concept is used in digital life to create digital signatures. The digital signature must be easy for anyone to recognize as authentic, but it should be impossible for anyone except the authorized signer to produce the signature. \newline
+
+\hspace{1cm} For instance, if Bob wants to know that Alice is the sender of the message (M), Alice first decrypts her own message with the decrypting key (D\textsubscript{A}) and then sends D\textsubscript{A}(M) to Bob. Bob reaches the message by using Alice's public key, so it proves that the message came from Alice. 
+
+\vspace{5mm} 
+
+\textbf{4. Discussion} \newline 
+
+\hspace{0.5cm} Cryptography of Conventional Cryptography is straightforward. To provide security, a strong cryptography algorithm is required. The sender and receiver must keep a secure version of the private key. Public Key Cryptography is generally slower than conventional cryptography. \newline
+
+\hspace{0.5cm} Since the sender and receiver use the same key, the source and authenticity of the message cannot be guaranteed, messages cannot be validate as coming from a specific user. It is not much secure compared to Public Key Cryptography. If the recipient loses the key, they cannot decrypt the message, so sending the message will fail.\newline
+
+\hspace{0.5cm} The cryptanalytic difficulty of a system that can perform encryption and decryption operations in P time cannot exceed NP. Furthermore, cryptanalysis requires NP time and we also assume that the general cryptanalytic problem is NP complete.
+
+\vspace{5mm}
+
+\textbf{5. Conclusion and Future Work} \newline 
+
+\hspace{0.5cm} Conventional Cryptography was created because of the need for security. In Conventional Cryptography, users were communicating over a single secure key, but this created authentication and privacy issues. Together with the Public Key Cryptography that \textit{Diffie-Hellman} revealed in the \textit{"New Directions in Cryptography"} article, it solved the authentication and privacy problems by producing unique public keys and private keys. \newline
+
+\hspace{0.5cm} One year after \textit{"New Directions in Cryptography"} was published, the RSA algorithm was created by \textit{Ron Rivest}, \textit{Adi Shamir}, and \textit{Leonard Adleman}. In the future, large universal quantum computers could break many popular Public Key Cryptographic systems such as RSA and Diffie-Hellman, but this cannot end encryption and privacy as we know it, and large-scale quantum computers are unlikely to be built in the next few years. Also, Symmetric encryption, or more specifically AES-256, is believed to be quantum resistant. This means that quantum computers are not expected to reduce attack time effectively if key sizes are large enough.
+
+\vspace{5mm}
+
+\textbf{6. References:}
+\end{flushleft}
+
+• Diffie, Whitfield and Martin E. Hellman. New Directions in Cryptography. IEEE Transactions on Information Theory, 1976.
+\newline 
+
+• “Applications and Limitations of Diffie-Hellman Algorithm.” GeeksforGeeks, 5 Mar. 2020, www.geeksforgeeks.org/applications-and-limitations-of-diffie-hellman-algorithm. \newline
+
+• What is Diffie-Hellman? (2016, March 15). Unorde.Red. https://unorde.red/what-is-diffie-hellman/ \newline
+
+• Public-Key Cryptography. (1995). https://ee.stanford.edu/~hellman/pkc.pdf \newline
+
+\vspace{1cm}
+
+• Analysis of Diffie Hellman Key Exchange Algorithm with Proposed Key Exchange Algorithm. (2015). https://www.ijettcs.org/Volume4Issue1/IJETTCS-2015-01-10-24.pdf \newline
+
+• A Comparative Analysis of Encryption Algorithms for Better Utilization. (2013). https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.402.7978&rep=rep1&type=pdf\newline
+
+• “Transport Layer Security (TLS).” GeeksforGeeks, 26 Feb. 2021, \newline www.geeksforgeeks.org/transport-layer-security-tls. \newline
+
+• “IP Security (IPSec).” GeeksforGeeks, 4 Feb. 2020, www.geeksforgeeks.org/ip-security-ipsec.\newline
+
+\end{document}
